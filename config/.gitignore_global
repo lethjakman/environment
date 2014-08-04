@@ -1,0 +1,4 @@
+/spec/dummy/tmp
+cache/*
+tags
+.DS_Store
