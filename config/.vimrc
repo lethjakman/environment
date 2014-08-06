@@ -1,4 +1,3 @@
-"source ~/.colemak.vim
 source ~/.vam
 :highlight Comment ctermfg=blue
 set go-=T
@@ -14,23 +13,21 @@ nmap <c-q> :bp \| bd#<CR>
 nmap <a-p> :CtrlPBuffer
 map <F6> :Bufferlist<CR>
 set pastetoggle=<F7>
-set smartindent
+
+" Indentation
+filetype indent plugin on
 set autoindent
-set tabstop=2
-set sts=2
-set shiftwidth=2
-set expandtab
+
 set hlsearch!
-set runtimepath+=~/.vim/vim-addon-manager
 set nu
+
 set noswapfile
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip " MacOSX/Linux"
-" ,'UltiSnips',
-call vam#ActivateAddons(['Auto_Pairs', 'Syntastic','Tagbar','ctrlp','The_NERD_tree', 'rails', 'netrw', 'The_NERD_Commenter', 'vim-coffee-script', 'buffet', 'surround', 'fugitive', 'vim-multiple-cursors', 'github:mattn/emmet-vim', 'ag', 'vim-ruby'], {'auto_install' : 0})
+
+set runtimepath+=~/.vim/vim-addon-manager
+call vam#ActivateAddons(['Auto_Pairs', 'Syntastic','Tagbar','ctrlp','The_NERD_tree', 'rails', 'netrw', 'The_NERD_Commenter', 'vim-coffee-script', 'buffet', 'surround', 'fugitive', 'vim-multiple-cursors', 'github:mattn/emmet-vim', 'ag', 'sleuth'], {'auto_install' : 0})
 let g:AutoPairsFlyMode = 1
 set hidden
 let g:AutoPairsShortcutBackInsert = '<C-l>'
 let g:UltiSnipsListSnippets="<F2>"
-" load indent file for the current filetype
-filetype indent on
 set clipboard=unnamed
