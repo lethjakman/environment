@@ -178,19 +178,6 @@ plugins=(git rails gitfast lol macports nyan vagrant bundler cap catimg cp)
  
 source $ZSH/oh-my-zsh.sh
 
-path=(
-    /Users/kardosa/toolbox/bin
-    $HOME/.rbenv/shims
-    $HOME/.rbenv/bin
-    /usr/local/instantclient_11_2
-    /opt/local/bin
-    /opt/local/sbin
-    /usr/local/sbin
-    $HOME/Qt5.1.0/5.1.0/clang_64/bin
-    /opt/local/lib
-    $path
-)
- 
 cdpath=(
     $HOME 
     $HOME/Documents
@@ -198,8 +185,6 @@ cdpath=(
     /Users/kardosa/Documents/workspace/apps_env
     $cdpath
 )
- 
-eval "$(rbenv init -)"
  
 export EC2_HOME="/opt/local/ec2-api-tools-1.6.12.0"
  
@@ -241,3 +226,5 @@ export KEYTIMEOUT=1
 if [ "$WORKING_ENV" = "work" ]; then
   source "$HOME/.environment/local/.$WORKING_ENV"
 fi
+
+source ~/.fzf.zsh

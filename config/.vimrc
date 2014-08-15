@@ -24,10 +24,24 @@ set nu
 set noswapfile
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip " MacOSX/Linux"
 
+set omnifunc=syntaxcomplete#Complete
+
 set runtimepath+=~/.vim/vim-addon-manager
-call vam#ActivateAddons(['Auto_Pairs', 'Syntastic','Tagbar','ctrlp','The_NERD_tree', 'rails', 'netrw', 'The_NERD_Commenter', 'vim-coffee-script', 'buffet', 'surround', 'fugitive', 'vim-multiple-cursors', 'github:mattn/emmet-vim', 'ag', 'sleuth'], {'auto_install' : 0})
+call vam#ActivateAddons(['Auto_Pairs', 'Syntastic','Tagbar','ctrlp','The_NERD_tree', 'rails', 'netrw', 'The_NERD_Commenter', 'vim-coffee-script', 'buffet', 'surround', 'fugitive', 'vim-multiple-cursors', 'github:mattn/emmet-vim', 'ag', 'sleuth', 'notes', 'rails', 'vim-ruby', 'textobj-rubyblock', 'textobj-user', 'matchit.zip', 'dbext', 'SQLUtilities', 'align', 'better-whitespace', 'Rubytest', 'github:danchoi/ri.vim'], {'auto_install' : 0})
 let g:AutoPairsFlyMode = 1
 set hidden
 let g:AutoPairsShortcutBackInsert = '<C-l>'
 let g:UltiSnipsListSnippets="<F2>"
 set clipboard=unnamed
+set rtp+=~/.fzf
+
+set foldmethod=syntax
+
+" Set up backups
+set backup
+set backupdir=~/.vim/tmp/backups
+set writebackup
+
+" Set all swap-files to go into a central directory
+set swapfile
+set dir=~/.vim/tmp/swapfiles
