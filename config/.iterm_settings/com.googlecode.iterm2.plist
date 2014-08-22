@@ -46,10 +46,24 @@
 	<real>1</real>
 	<key>GlobalKeyMap</key>
 	<dict>
+		<key>0x72-0x100000</key>
+		<dict>
+			<key>Action</key>
+			<integer>13</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
 		<key>0x9-0x40000</key>
 		<dict>
 			<key>Action</key>
 			<integer>32</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
+		<key>0xd-0x100000</key>
+		<dict>
+			<key>Action</key>
+			<integer>13</integer>
 			<key>Text</key>
 			<string></string>
 		</dict>
@@ -220,7 +234,7 @@
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>1419 1163 384 129 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 989 2560 429 0 0 2560 1418 </string>
+	<string>-2556 242 2551 1408 -2560 232 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>-889 1199 570 451 -2560 232 2560 1418 </string>
 	<key>New Bookmarks</key>
@@ -538,26 +552,12 @@
 					<key>Text</key>
 					<string>0x7f</string>
 				</dict>
-				<key>0x72-0x100000</key>
-				<dict>
-					<key>Action</key>
-					<integer>13</integer>
-					<key>Text</key>
-					<string></string>
-				</dict>
 				<key>0x9-0x40000</key>
 				<dict>
 					<key>Action</key>
 					<integer>11</integer>
 					<key>Text</key>
 					<string>9</string>
-				</dict>
-				<key>0xd-0x100000</key>
-				<dict>
-					<key>Action</key>
-					<integer>13</integer>
-					<key>Text</key>
-					<string></string>
 				</dict>
 				<key>0xf700-0x220000</key>
 				<dict>
