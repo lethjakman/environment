@@ -228,3 +228,8 @@ if [ "$WORKING_ENV" = "work" ]; then
 fi
 
 source ~/.fzf.zsh
+
+# For vim theme, not sure if necessary
+source ~/.vim/vim-addons/gruvbox/gruvbox_256palette_osx.sh
+# Support 256 color
+export TERM=screen-256color
