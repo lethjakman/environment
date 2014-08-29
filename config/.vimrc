@@ -27,7 +27,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip " MacOSX/Linux"
 set omnifunc=syntaxcomplete#Complete
 
 set runtimepath+=~/.vim/vim-addon-manager
-call vam#ActivateAddons(['Auto_Pairs', 'Syntastic','Tagbar','ctrlp','The_NERD_tree', 'rails', 'netrw', 'The_NERD_Commenter', 'vim-coffee-script', 'buffet', 'surround', 'fugitive', 'vim-multiple-cursors', 'github:mattn/emmet-vim', 'ag', 'sleuth', 'notes', 'rails', 'vim-ruby', 'textobj-rubyblock', 'textobj-user', 'matchit.zip', 'dbext', 'SQLUtilities', 'better-whitespace', 'Rubytest', 'github:danchoi/ri.vim', 'eunuch', 'neocomplcache'], {'auto_install' : 0})
+call vam#ActivateAddons(['Auto_Pairs', 'Syntastic','Tagbar','ctrlp','The_NERD_tree', 'rails', 'netrw', 'The_NERD_Commenter', 'vim-coffee-script', 'buffet', 'surround', 'fugitive', 'vim-multiple-cursors', 'github:mattn/emmet-vim', 'ag', 'sleuth', 'notes', 'rails', 'vim-ruby', 'textobj-rubyblock', 'textobj-user', 'matchit.zip', 'dbext', 'SQLUtilities', 'better-whitespace', 'Rubytest', 'github:danchoi/ri.vim', 'eunuch', 'neocomplcache', 'UltiSnips', 'vim-snippets', 'github:JazzCore/neocomplcache-ultisnips', 'Gundo'], {'auto_install' : 0})
 let g:AutoPairsFlyMode = 1
 set hidden
 let g:AutoPairsShortcutBackInsert = '<C-l>'
