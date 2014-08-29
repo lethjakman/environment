@@ -10,6 +10,7 @@ set background=dark    " Setting dark mode"
     "set transp=8
 "endif
 
+nnoremap <F5> :GundoToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 nmap <F9> :NERDTreeToggle<CR>
 nmap <c-q> :bp \| bd#<CR>
