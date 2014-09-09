@@ -1,5 +1,5 @@
 source ~/.vam
-call vam#ActivateAddons(['Auto_Pairs', 'Syntastic','Tagbar','ctrlp','The_NERD_tree', 'rails', 'netrw', 'The_NERD_Commenter', 'vim-coffee-script', 'buffet', 'surround', 'fugitive', 'vim-multiple-cursors', 'github:mattn/emmet-vim', 'ag', 'sleuth', 'notes', 'rails', 'vim-ruby', 'textobj-rubyblock', 'textobj-user', 'matchit.zip', 'dbext', 'SQLUtilities', 'better-whitespace', 'Rubytest', 'github:danchoi/ri.vim', 'eunuch', 'neocomplcache', 'UltiSnips', 'vim-snippets', 'github:JazzCore/neocomplcache-ultisnips', 'Gundo', 'gruvbox'], {'auto_install' : 0})
+call vam#ActivateAddons(['Auto_Pairs', 'Syntastic','Tagbar','ctrlp','The_NERD_tree', 'rails', 'netrw', 'The_NERD_Commenter', 'vim-coffee-script', 'buffet', 'surround', 'fugitive', 'vim-multiple-cursors', 'github:mattn/emmet-vim', 'ag', 'sleuth', 'notes', 'rails', 'vim-ruby', 'textobj-rubyblock', 'textobj-user', 'matchit.zip', 'dbext', 'SQLUtilities', 'better-whitespace', 'Rubytest', 'github:danchoi/ri.vim', 'eunuch', 'neocomplcache', 'UltiSnips', 'vim-snippets', 'github:JazzCore/neocomplcache-ultisnips', 'Gundo', 'gruvbox', 'vim-airline'], {'auto_install' : 0})
 set background=dark    " Setting dark mode"
 :colorscheme gruvbox
 ":highlight Comment ctermfg=blue
@@ -39,6 +39,7 @@ set clipboard=unnamed
 set rtp+=~/.fzf
 
 set foldmethod=syntax
+set foldlevel=1
 
 " Set up backups
 set backup
@@ -129,3 +130,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
