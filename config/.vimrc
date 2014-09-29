@@ -21,9 +21,23 @@ set pastetoggle=<F7>
 " Indentation
 filetype indent plugin on
 set autoindent
+" Reduce timeout for O
+set timeout timeoutlen=3000 ttimeoutlen=100
 
 set hlsearch!
-set nu
+
+" Whitespace
+let g:strip_whitespace_on_save = 1
+
+" Line numbering
+set number
+nnoremap <Leader>n :set number!<CR>
+if(&relativenumber != 1)
+  nnoremap <Leader>e :set relativenumber!<CR>
+  set relativenumber
+  autocmd InsertEnter * :set number norelativenumber
+  autocmd InsertLeave * :set number relativenumber
+endif
 
 set noswapfile
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip " MacOSX/Linux"
@@ -134,3 +148,7 @@ let g:UltiSnipsEditSplit="vertical"
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+
+let NERDTreeShowLineNumbers=1
+
+set mouse=a
