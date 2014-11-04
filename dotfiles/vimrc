@@ -52,6 +52,8 @@ let g:UltiSnipsListSnippets="<F2>"
 set clipboard=unnamed
 set rtp+=~/.fzf
 
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
 set foldmethod=syntax
 set foldlevel=1
 
