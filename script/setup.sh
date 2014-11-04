@@ -2,7 +2,7 @@
 set -e
 environment="$HOME/.environment"
 if [ ! -d "$environment" ]; then
-  git clone --branch prezto --recursive https://github.com/lethjakman/environment "$environment"
+  git clone -q --branch prezto --recursive https://github.com/lethjakman/environment "$environment"
 fi
 
 dot_folder="$environment/dotfiles"
