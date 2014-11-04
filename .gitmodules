@@ -1,3 +1,6 @@
 [submodule "dotfiles/zprezto"]
 	path = dotfiles/zprezto
 	url = git@github.com:lethjakman/prezto.git
+[submodule "dotfiles/fzf"]
+	path = dotfiles/fzf
+	url = https://github.com/junegunn/fzf.git
