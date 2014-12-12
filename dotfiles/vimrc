@@ -79,4 +79,3 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
 let NERDTreeShowLineNumbers=1
 
-set mouse=a
