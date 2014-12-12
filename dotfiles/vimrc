@@ -79,3 +79,5 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
 let NERDTreeShowLineNumbers=1
 
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<c-e>"
