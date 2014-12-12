@@ -7,7 +7,6 @@ set runtimepath+=~/.vim/vim-addon-manager
 set background=dark    " Setting dark mode"
 :colorscheme gruvbox
 
-nnoremap <F5> :GundoToggle<CR>
 " Turn on mouse
 set mouse=a
 " Allows click events to span across the whole screen
@@ -15,11 +14,13 @@ if has('mouse_sgr')
   set ttymouse=sgr
 endif
 
+" Remaps
+map <F6> :Bufferlist<CR>
 nmap <F8> :TagbarToggle<CR>
 nmap <F9> :NERDTreeToggle<CR>
-nmap <c-q> :bp \| bd#<CR>
 nmap <a-p> :CtrlPBuffer
-map <F6> :Bufferlist<CR>
+nmap <c-q> :bp \| bd#<CR>
+nnoremap <F5> :GundoToggle<CR>
 set pastetoggle=<F7>
 
 " Indentation
