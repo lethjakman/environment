@@ -60,10 +60,6 @@ silent !mkdir -p ~/.vim_backup/tmp/backups > /dev/null 2>&1
 set backupdir=~/.vim/tmp/backups
 set writebackup
 
-" Set all swap-files to go into a central directory
-set swapfile
-set dir=~/.vim/tmp/swapfiles
-
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
