@@ -3,15 +3,9 @@ call vam#ActivateAddons(['Auto_Pairs', 'YouCompleteMe','Syntastic','Tagbar','ctr
 " 'neocomplcache','github:JazzCore/neocomplcache-ultisnips',
 set runtimepath+=~/.vim/vim-addon-manager
 
+" Theming
 set background=dark    " Setting dark mode"
 :colorscheme gruvbox
-":highlight Comment ctermfg=blue
-"set go-=T
-"set bg=dark
-"if &background == "dark"
-    "hi normal guibg=black
-    "set transp=8
-"endif
 
 nnoremap <F5> :GundoToggle<CR>
 nmap <F8> :TagbarToggle<CR>
