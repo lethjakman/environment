@@ -42,9 +42,6 @@ if(&relativenumber != 1)
   autocmd InsertLeave * :set number relativenumber
 endif
 
-set noswapfile
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip " MacOSX/Linux"
-
 set omnifunc=syntaxcomplete#Complete
 
 set runtimepath+=~/.vim/vim-addon-manager
