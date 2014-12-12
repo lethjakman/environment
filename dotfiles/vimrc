@@ -1,5 +1,8 @@
 source ~/.vam
-call vam#ActivateAddons(['Auto_Pairs', 'Syntastic','Tagbar','ctrlp','The_NERD_tree', 'rails', 'The_NERD_Commenter', 'vim-coffee-script', 'buffet', 'surround', 'fugitive', 'vim-multiple-cursors', 'github:mattn/emmet-vim', 'ag', 'sleuth', 'notes', 'rails', 'vim-ruby', 'textobj-rubyblock', 'textobj-user', 'matchit.zip', 'dbext', 'SQLUtilities', 'better-whitespace', 'Rubytest', 'github:danchoi/ri.vim', 'eunuch', 'neocomplcache', 'UltiSnips', 'vim-snippets', 'github:JazzCore/neocomplcache-ultisnips', 'Gundo', 'gruvbox', 'vim-airline'], {'auto_install' : 1})
+call vam#ActivateAddons(['Auto_Pairs', 'YouCompleteMe','Syntastic','Tagbar','ctrlp','The_NERD_tree', 'rails', 'The_NERD_Commenter', 'vim-coffee-script', 'buffet', 'surround', 'fugitive', 'vim-multiple-cursors', 'github:mattn/emmet-vim', 'ag', 'sleuth', 'notes', 'rails', 'vim-ruby', 'textobj-rubyblock', 'textobj-user', 'matchit.zip', 'dbext', 'SQLUtilities', 'better-whitespace', 'Rubytest', 'github:danchoi/ri.vim', 'eunuch', 'Gundo', 'gruvbox', 'UltiSnips', 'vim-snippets', 'vim-airline', 'github:Konfekt/FastFold'], {'auto_install' : 1})
+" 'neocomplcache','github:JazzCore/neocomplcache-ultisnips',
+set runtimepath+=~/.vim/vim-addon-manager
+
 set background=dark    " Setting dark mode"
 :colorscheme gruvbox
 ":highlight Comment ctermfg=blue
