@@ -8,6 +8,13 @@ set background=dark    " Setting dark mode"
 :colorscheme gruvbox
 
 nnoremap <F5> :GundoToggle<CR>
+" Turn on mouse
+set mouse=a
+" Allows click events to span across the whole screen
+if has('mouse_sgr')
+  set ttymouse=sgr
+endif
+
 nmap <F8> :TagbarToggle<CR>
 nmap <F9> :NERDTreeToggle<CR>
 nmap <c-q> :bp \| bd#<CR>
