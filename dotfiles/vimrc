@@ -26,6 +26,7 @@ set pastetoggle=<F7>
 " Indentation
 filetype indent plugin on
 set autoindent
+
 " Reduce timeout for O
 set timeout timeoutlen=3000 ttimeoutlen=100
 
@@ -51,6 +52,7 @@ set rtp+=~/.fzf
 
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
+" Folding
 set foldmethod=syntax
 set foldlevel=1
 
@@ -73,10 +75,12 @@ if executable('ag')
 endif
 
 
+" Better autocomplete for ruby
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
+" Nerdtree
 let NERDTreeShowLineNumbers=1
 
 " Ultisnips
