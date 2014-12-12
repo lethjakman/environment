@@ -46,7 +46,6 @@ set omnifunc=syntaxcomplete#Complete
 
 let g:AutoPairsFlyMode = 1
 let g:AutoPairsShortcutBackInsert = '<C-l>'
-let g:UltiSnipsListSnippets="<F2>"
 set clipboard=unnamed
 set rtp+=~/.fzf
 
