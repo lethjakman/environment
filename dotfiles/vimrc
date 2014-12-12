@@ -44,7 +44,6 @@ endif
 
 set omnifunc=syntaxcomplete#Complete
 
-set runtimepath+=~/.vim/vim-addon-manager
 let g:AutoPairsFlyMode = 1
 set hidden
 let g:AutoPairsShortcutBackInsert = '<C-l>'
