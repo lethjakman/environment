@@ -29,8 +29,6 @@ set autoindent
 " Reduce timeout for O
 set timeout timeoutlen=3000 ttimeoutlen=100
 
-set hlsearch!
-
 " Whitespace
 let g:strip_whitespace_on_save = 1
 
