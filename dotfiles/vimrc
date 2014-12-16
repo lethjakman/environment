@@ -48,6 +48,9 @@ if has('mouse_sgr')
   set ttymouse=sgr
 endif
 
+" General settings
+set hlsearch
+
 " Remaps
 map <F6> :Bufferlist<CR>
 nmap <F8> :TagbarToggle<CR>
