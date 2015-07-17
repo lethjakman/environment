@@ -175,3 +175,10 @@ let g:surround_custom_mapping.vim= {
             \'f':  "function! \r endfunction"
             \
             \ }
+
+let g:ruby_path="/opt/boxen/rbenv/shims/ruby"
+set ttyfast
+set lazyredraw
+
+" AIRLINE
+set laststatus=2
