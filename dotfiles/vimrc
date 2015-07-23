@@ -31,6 +31,7 @@ call vam#ActivateAddons([
   \'surround',
   \'textobj-rubyblock',
   \'textobj-user',
+  \'unimpaired',
   \'vim-airline',
   \'vim-coffee-script',
   \'vim-multiple-cursors',
