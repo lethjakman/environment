@@ -1,0 +1,142 @@
+;; repositories
+(require 'package)
+  (push '("marmalade" . "http://marmalade-repo.org/packages/")
+        package-archives )
+  (push '("melpa" . "http://melpa.milkbox.net/packages/")
+        package-archives)
+  (package-initialize)
+
+;; (require 'package)
+;; Comment out if you've already loaded this package...
+(require 'cl)
+ 
+(defvar my-packages
+  '(ack-and-a-half ace-jump-mode ace-window auctex clojure-mode coffee-mode deft
+		   evil evil-tabs evil-surround evil-commentary expand-region gist
+		   haml-mode haskell-mode helm helm-projectile flx-ido inf-ruby magit
+		   markdown-mode multi-term perspective projectile
+		   sass-mode solarized-theme rainbow-mode scss-mode
+		   solarized-theme)
+  "A list of packages to ensure are installed at launch.")
+ 
+(defun my-packages-installed-p ()
+  (loop for p in my-packages
+        when (not (package-installed-p p)) do (return nil)
+        finally (return t)))
+ 
+(unless (my-packages-installed-p)
+  ;; check for new packages (package versions)
+  (package-refresh-contents)
+  ;; install the missing packages
+  (dolist (p my-packages)
+    (when (not (package-installed-p p))
+      (package-install p))))
+
+(package-initialize)
+
+;; Projectile
+(projectile-global-mode)
+(require 'helm-projectile)
+(helm-projectile-on)
+
+;;evil mode
+(require 'evil)
+  (evil-mode 1)
+
+;; Ignore in multi term
+(add-to-list 'evil-emacs-state-modes 'multi-term-mode)
+
+;; commentary
+(evil-commentary-mode)
+
+;; surround
+(require 'evil-surround)
+(global-evil-surround-mode 1)
+
+;; magit
+(add-to-list 'load-path "~/.emacs.d/site-lisp/magit/lisp")
+(require 'magit)
+
+(with-eval-after-load 'info
+  (info-initialize)
+  (add-to-list 'Info-directory-list
+	       "~/.emacs.d/site-lisp/magit/Documentation/"))
+
+;; relative line numbers
+;; (add-hook 'prog-mode-hook 'relative-line-numbers-mode t)
+;; (add-hook 'prog-mode-hook 'line-number-mode t)
+;; (add-hook 'prog-mode-hook 'column-number-mode t)
+
+;; ace-jump
+(add-to-list 'load-path "which-folder-ace-jump-mode-file-in/")
+(require 'ace-jump-mode)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
+;; ace-window
+(define-key global-map (kbd "C-c w") 'ace-jump-mode)
+
+;; evil tabs
+(global-evil-tabs-mode t)
+
+;; nerd-commenter
+;; (evilnc-default-hotkeys)
+
+;; Vim key bindings
+;; (require 'evil-leader)
+;; (global-evil-leader-mode)
+;; (evil-leader/set-key
+;;   "ci" 'evilnc-comment-or-uncomment-lines
+;;   "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
+;;   "ll" 'evilnc-quick-comment-or-uncomment-to-the-line
+;;   "cc" 'evilnc-copy-and-comment-lines
+;;   "cp" 'evilnc-comment-or-uncomment-paragraphs
+;;   "cr" 'comment-or-uncomment-region
+;;   "cv" 'evilnc-toggle-invert-comment-line-by-line
+;;   "\\" 'evilnc-comment-operator ; if you prefer backslash key
+;; )
+
+;; Solarized
+(load-theme 'solarized-dark t)
+
+;; Helm
+(require 'helm)
+(require 'helm-config)
+
+;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
+;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
+;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+(global-unset-key (kbd "C-x c"))
+
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
+(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
+(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+
+(when (executable-find "curl")
+  (setq helm-google-suggest-use-curl-p t))
+
+(setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
+      helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
+      helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
+      helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
+      helm-ff-file-name-history-use-recentf t)
+
+(helm-mode 1)
+
+;; perspective
+(persp-mode)
+
+;; fix multiterm
+(defadvice ansi-term (after advise-ansi-term-coding-system)
+    (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))
+(ad-activate 'ansi-term)
+(setq system-uses-terminfo nil)
+
+;; (add-hook 'term-mode-hook (lambda() (set (make-local-variable 'evil-mode) nil)))
+
+(require 'multi-term)
+(setq multi-term-program "/usr/local/bin/zsh")
+(setq system-uses-terminfo nil)
+
+
+(add-hook 'term-mode-hook 'evil-emacs-state)
