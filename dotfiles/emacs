@@ -34,14 +34,11 @@
 
 (package-initialize)
 
-;; Projectile
-(projectile-global-mode)
-(require 'helm-projectile)
-(helm-projectile-on)
-
 ;;evil mode
+(setq evil-want-C-u-scroll t) ; must appear before require 'evil
 (require 'evil)
-  (evil-mode 1)
+
+(evil-mode 1)
 
 ;; Ignore in multi term
 (add-to-list 'evil-emacs-state-modes 'multi-term-mode)
