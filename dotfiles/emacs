@@ -114,6 +114,10 @@
       helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
       helm-ff-file-name-history-use-recentf t)
 
+;; Helm
+(require 'helm)
+(require 'helm-config)
+
 (helm-mode 1)
 
 ;; Projectile
