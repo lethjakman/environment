@@ -14,7 +14,7 @@
  
 (defvar my-packages
   '(ack-and-a-half ace-jump-mode ace-window auctex clojure-mode coffee-mode deft
-		   evil evil-tabs evil-surround evil-commentary expand-region gist
+		   exec-path-from-shell evil evil-tabs evil-surround evil-commentary expand-region gist
 		   haml-mode haskell-mode helm helm-projectile flx-ido inf-ruby magit
 		   markdown-mode multi-term perspective projectile
 		   sass-mode solarized-theme rainbow-mode scss-mode
