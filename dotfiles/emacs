@@ -42,6 +42,7 @@
 ;;evil mode
 (setq evil-want-C-u-scroll t) ; must appear before require 'evil
 (require 'evil)
+(modify-syntax-entry ?_ "w") ; Make _ a part of the search word
 
 (evil-mode 1)
 
