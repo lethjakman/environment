@@ -36,6 +36,9 @@
 
 (package-initialize)
 
+;; Solarized
+(load-theme 'solarized-dark t)
+
 ;;evil mode
 (setq evil-want-C-u-scroll t) ; must appear before require 'evil
 (require 'evil)
@@ -93,13 +96,6 @@
 ;;   "cv" 'evilnc-toggle-invert-comment-line-by-line
 ;;   "\\" 'evilnc-comment-operator ; if you prefer backslash key
 ;; )
-
-;; Solarized
-(load-theme 'solarized-dark t)
-
-;; Helm
-(require 'helm)
-(require 'helm-config)
 
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
 ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
