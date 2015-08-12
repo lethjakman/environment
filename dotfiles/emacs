@@ -149,3 +149,7 @@
 (add-hook 'term-mode-hook 'evil-emacs-state)
 
 (modify-syntax-entry ?_ "w")
+
+;; Tab width
+(setq-default indent-tabs-mode nil)
+(setq tab-width 4)
