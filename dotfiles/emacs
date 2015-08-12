@@ -153,3 +153,7 @@
 ;; Tab width
 (setq-default indent-tabs-mode nil)
 (setq tab-width 4)
+
+;; shell initialization
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
