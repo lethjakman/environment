@@ -11,7 +11,7 @@
 ;; (require 'package)
 ;; Comment out if you've already loaded this package...
 (require 'cl)
- 
+
 (defvar my-packages
   '(ack-and-a-half ace-jump-mode ace-window auctex clojure-mode coffee-mode deft
 		   exec-path-from-shell evil evil-tabs evil-surround evil-commentary expand-region gist
@@ -20,12 +20,12 @@
 		   sass-mode solarized-theme rainbow-mode scss-mode
 		   solarized-theme)
   "A list of packages to ensure are installed at launch.")
- 
+
 (defun my-packages-installed-p ()
   (loop for p in my-packages
         when (not (package-installed-p p)) do (return nil)
         finally (return t)))
- 
+
 (unless (my-packages-installed-p)
   ;; check for new packages (package versions)
   (package-refresh-contents)
@@ -157,3 +157,25 @@
 ;; shell initialization
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values
+   (quote
+    ((haskell-process-use-ghci . t)
+     (haskell-indent-spaces . 4)))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; Tabs
+;;(setq-default indent-tabs-mode nil)
+;;(setq-default tab-width 4)
+;;(setq indent-line-function 'insert-tab)
