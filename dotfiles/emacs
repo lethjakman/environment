@@ -77,7 +77,7 @@
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
 ;; ace-window
-(define-key global-map (kbd "C-c w") 'ace-jump-mode)
+(define-key global-map (kbd "M-p") 'ace-window)
 
 ;; evil tabs
 (global-evil-tabs-mode t)
