@@ -200,3 +200,7 @@
 (add-hook 'ruby-mode-hook
   (function (lambda ()
           (setq evil-shift-width ruby-indent-level))))
+
+;; winner mode
+(when (fboundp 'winner-mode)
+      (winner-mode 1))
