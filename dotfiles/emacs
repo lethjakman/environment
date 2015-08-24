@@ -84,6 +84,9 @@
 ;; evil tabs
 (global-evil-tabs-mode t)
 
+;; evil rails
+(require 'evil-rails)
+
 ;; nerd-commenter
 ;; (evilnc-default-hotkeys)
 
