@@ -15,10 +15,12 @@
 (defvar my-packages
   '(ack-and-a-half ace-jump-mode ace-window auctex clojure-mode
 		   coffee-mode deft exec-path-from-shell evil evil-tabs
-		   evil-surround evil-commentary evil-rails expand-region gist
-		   haml-mode haskell-mode helm helm-projectile flx-ido
-		   inf-ruby magit markdown-mode multi-term perspective
-		   projectile sass-mode solarized-theme rainbow-mode scss-mode
+		   evil-surround evil-commentary evil-rails
+		   evil-matchit expand-region gist haml-mode
+		   haskell-mode helm helm-projectile flx-ido inf-ruby
+		   magit markdown-mode multi-term perspective
+		   projectile sass-mode solarized-theme rainbow-mode
+		   scss-mode
 		   solarized-theme)
   "A list of packages to ensure are installed at launch.")
 
@@ -53,6 +55,9 @@
 (add-to-list 'evil-emacs-state-modes 'term-mode)
 (add-to-list 'evil-emacs-state-modes 'multi-term-mode)
 
+;; evil matchit
+(require 'evil-matchit)
+(global-evil-matchit-mode 1)
 ;; commentary
 (evil-commentary-mode)
 
@@ -171,6 +176,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(evil-search-module (quote evil-search))
  '(multi-term-scroll-to-bottom-on-output t)
  '(safe-local-variable-values
    (quote
