@@ -137,6 +137,10 @@
 (require 'helm-projectile)
 (helm-projectile-on)
 
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
+(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
+(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+
 (define-key projectile-mode-map [?\s-d] 'helm-projectile-find-dir)
 (define-key projectile-mode-map [?\s-p] 'helm-projectile-switch-project)
 (define-key projectile-mode-map [?\s-f] 'helm-projectile-find-file)
