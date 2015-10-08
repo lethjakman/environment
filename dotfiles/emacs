@@ -17,8 +17,8 @@
 		   coffee-mode deft elm-mode exec-path-from-shell evil
 		   evil-tabs evil-surround evil-commentary evil-rails
 		   evil-matchit expand-region gist haml-mode
-		   haskell-mode helm helm-projectile flx-ido inf-ruby
-		   magit markdown-mode multi-term perspective
+		   haskell-mode helm-ag helm helm-projectile flx-ido
+		   inf-ruby magit markdown-mode multi-term perspective
 		   projectile sass-mode solarized-theme rainbow-mode
 		   scss-mode solarized-theme)
   "A list of packages to ensure are installed at launch.")
@@ -85,7 +85,7 @@
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 
 ;; ace-window
-(global-set-key (kbd "M-w") 'ace-window)
+(global-set-key (kbd "C-c t") 'ace-window)
 
 ;; evil tabs
 (global-evil-tabs-mode t)
@@ -136,6 +136,10 @@
 (require 'helm-projectile)
 (helm-projectile-on)
 
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
+(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
+(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+
 (define-key projectile-mode-map [?\s-d] 'helm-projectile-find-dir)
 (define-key projectile-mode-map [?\s-p] 'helm-projectile-switch-project)
 (define-key projectile-mode-map [?\s-f] 'helm-projectile-find-file)
@@ -157,13 +161,7 @@
 (setq system-uses-terminfo nil)
 
 
-(add-hook 'term-mode-hook 'evil-emacs-state)
-
 (modify-syntax-entry ?_ "w")
-
-;; Tab width
-(setq-default indent-tabs-mode nil)
-(setq tab-width 4)
 
 ;; shell initialization
 (when (memq window-system '(mac ns))
@@ -171,12 +169,14 @@
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
-
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(evil-search-module (quote evil-search))
  '(multi-term-scroll-to-bottom-on-output t)
+ '(projectile-globally-ignored-directories
+   (quote
+    (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "vendor" "log" "tmp" "node_modules")))
  '(safe-local-variable-values
    (quote
     ((haskell-process-use-ghci . t)
@@ -212,7 +212,6 @@
   (my-setup-indent 2) ; indent 4 spaces width
   )
 
-(my-office-code-style)
 (add-hook 'ruby-mode-hook
   (function (lambda ()
           (setq evil-shift-width ruby-indent-level))))
@@ -220,3 +219,5 @@
 ;; winner mode
 (when (fboundp 'winner-mode)
       (winner-mode 1))
+
+(add-to-list 'default-frame-alist '(font . "anonymous_pro"))
