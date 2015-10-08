@@ -161,8 +161,6 @@
 (setq system-uses-terminfo nil)
 
 
-(add-hook 'term-mode-hook 'evil-emacs-state)
-
 (modify-syntax-entry ?_ "w")
 
 ;; shell initialization
