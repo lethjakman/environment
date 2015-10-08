@@ -14,14 +14,13 @@
 
 (defvar my-packages
   '(ack-and-a-half ace-jump-mode ace-window auctex clojure-mode
-		   coffee-mode deft exec-path-from-shell evil evil-tabs
-		   evil-surround evil-commentary evil-rails
+		   coffee-mode deft elm-mode exec-path-from-shell evil
+		   evil-tabs evil-surround evil-commentary evil-rails
 		   evil-matchit expand-region gist haml-mode
 		   haskell-mode helm helm-projectile flx-ido inf-ruby
 		   magit markdown-mode multi-term perspective
 		   projectile sass-mode solarized-theme rainbow-mode
-		   scss-mode
-		   solarized-theme)
+		   scss-mode solarized-theme)
   "A list of packages to ensure are installed at launch.")
 
 (defun my-packages-installed-p ()
@@ -190,6 +189,8 @@
 
 ;; haskell
 (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
+
+(require 'elm-mode)
 
 (defun my-setup-indent (n)
   ;; web development
