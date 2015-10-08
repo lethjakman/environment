@@ -187,6 +187,9 @@
 ;;(setq-default tab-width 4)
 ;;(setq indent-line-function 'insert-tab)
 
+;; haskell
+(add-hook 'haskell-mode-hook 'haskell-indentation-mode)
+
 (defun my-setup-indent (n)
   ;; web development
   (setq coffee-tab-width n) ; coffeescript
