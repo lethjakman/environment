@@ -1,30 +1,85 @@
 source ~/.vam
-call vam#ActivateAddons(['Auto_Pairs', 'Syntastic','Tagbar','ctrlp','The_NERD_tree', 'rails', 'netrw', 'The_NERD_Commenter', 'vim-coffee-script', 'buffet', 'surround', 'fugitive', 'vim-multiple-cursors', 'github:mattn/emmet-vim', 'ag', 'sleuth', 'notes', 'rails', 'vim-ruby', 'textobj-rubyblock', 'textobj-user', 'matchit.zip', 'dbext', 'SQLUtilities', 'better-whitespace', 'Rubytest', 'github:danchoi/ri.vim', 'eunuch', 'neocomplcache', 'UltiSnips', 'vim-snippets', 'github:JazzCore/neocomplcache-ultisnips', 'Gundo', 'gruvbox', 'vim-airline'], {'auto_install' : 0})
-set background=dark    " Setting dark mode"
-:colorscheme gruvbox
-":highlight Comment ctermfg=blue
-"set go-=T
-"set bg=dark
-"if &background == "dark"
-    "hi normal guibg=black
-    "set transp=8
-"endif
+call vam#ActivateAddons([
+  \'Auto_Pairs',
+  \'EasyMotion',
+  \'Gundo',
+  \'SQLUtilities',
+  \'Syntastic',
+  \'Tabular',
+  \'Tagbar',
+  \'The_NERD_Commenter',
+  \'The_NERD_tree',
+  \'UltiSnips',
+  \'YouCompleteMe',
+  \'better-whitespace',
+  \'buffet',
+  \'ctrlp',
+  \'dbext',
+  \'eunuch',
+  \'fugitive',
+  \'github:Konfekt/FastFold',
+  \'github:altercation/vim-colors-solarized',
+  \'github:danchoi/ri.vim',
+  \'github:henrik/vim-ruby-runner',
+  \'github:mattn/emmet-vim',
+  \'github:t9md/vim-surround_custom_mapping',
+  \'keepcase',
+  \'matchit.zip',
+  \'notes',
+  \'rails',
+  \'sleuth',
+  \'surround',
+  \'textobj-rubyblock',
+  \'textobj-user',
+  \'unimpaired',
+  \'vim-airline',
+  \'vim-coffee-script',
+  \'vim-multiple-cursors',
+  \'vim-ruby',
+  \'vim-snippets',
+\], {'auto_install' : 1})
+" 'neocomplcache','github:JazzCore/neocomplcache-ultisnips',
+set runtimepath+=~/.vim/vim-addon-manager
 
-nnoremap <F5> :GundoToggle<CR>
+" Theming
+set background=dark    " Setting dark mode"
+":colorscheme gruvbox
+syntax enable
+if &t_Co > 255
+    let g:solarized_termcolors=256
+elseif &t_Co > 15
+    let g:solarized_termcolors=16
+endif
+
+let g:solarized_contrast="high"
+let g:solarized_termtrans=1
+
+
+" Turn on mouse
+set mouse=a
+" Allows click events to span across the whole screen
+if has('mouse_sgr')
+  set ttymouse=sgr
+endif
+
+" General settings
+set hlsearch
+
+" Remaps
+map <F6> :Bufferlist<CR>
 nmap <F8> :TagbarToggle<CR>
 nmap <F9> :NERDTreeToggle<CR>
-nmap <c-q> :bp \| bd#<CR>
 nmap <a-p> :CtrlPBuffer
-map <F6> :Bufferlist<CR>
+nmap <c-q> :bp \| bd#<CR>
+nnoremap <F5> :GundoToggle<CR>
 set pastetoggle=<F7>
 
 " Indentation
 filetype indent plugin on
 set autoindent
+
 " Reduce timeout for O
 set timeout timeoutlen=3000 ttimeoutlen=100
-
-set hlsearch!
 
 " Whitespace
 let g:strip_whitespace_on_save = 1
@@ -39,30 +94,24 @@ if(&relativenumber != 1)
   autocmd InsertLeave * :set number relativenumber
 endif
 
-set noswapfile
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip " MacOSX/Linux"
-
 set omnifunc=syntaxcomplete#Complete
 
-set runtimepath+=~/.vim/vim-addon-manager
 let g:AutoPairsFlyMode = 1
-set hidden
 let g:AutoPairsShortcutBackInsert = '<C-l>'
-let g:UltiSnipsListSnippets="<F2>"
 set clipboard=unnamed
 set rtp+=~/.fzf
 
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
+" Folding
 set foldmethod=syntax
 set foldlevel=1
 
 " Set up backups
 set backup
+silent !mkdir -p ~/.vim_backup/tmp/backups > /dev/null 2>&1
 set backupdir=~/.vim/tmp/backups
 set writebackup
-
-" Set all swap-files to go into a central directory
-set swapfile
-set dir=~/.vim/tmp/swapfiles
 
 " The Silver Searcher
 if executable('ag')
@@ -76,79 +125,61 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-""" NEOCOMPLCACHE ***
-" Setting examples:
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-" Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 1
-" Use underbar completion.
-let g:neocomplcache_enable_underbar_completion = 1
-" Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-    \ }
-
-" Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
-
-" AutoComplPop like behavior.
-"let g:neocomplcache_enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplcache_enable_auto_select = 1
-"let g:neocomplcache_disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<TAB>"
-"inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
-
-""" ULTISNIPS ***
-" Track the engine.
-"Plugin 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them:
-"Plugin 'honza/vim-snippets'
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
+" Better autocomplete for ruby
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
+" Nerdtree
 let NERDTreeShowLineNumbers=1
 
-set mouse=a
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<c-e>"
+
+let g:surround_custom_mapping = {}
+let g:surround_custom_mapping._ = {
+            \ 'p':  "<pre> \r </pre>",
+            \ 'w':  "%w(\r)",
+            \
+            \ }
+let g:surround_custom_mapping.help = {
+            \ 'p':  "> \r <",
+            \
+            \ }
+let g:surround_custom_mapping.ruby = {
+            \ '-':  "<% \r %>",
+            \ '=':  "<%= \r %>",
+            \ '9':  "(\r)",
+            \ '5':  "%(\r)",
+            \ '%':  "%(\r)",
+            \ 'w':  "%w(\r)",
+            \ '#':  "#{\r}",
+            \ '3':  "#{\r}",
+            \ 'b':  "do \r end",
+            \ 'e':  "begin \r end",
+            \ 'E':  "<<EOS \r EOS",
+            \ 'i':  "if \1if\1 \r end",
+            \ 'u':  "unless \1unless\1 \r end",
+            \ 'c':  "class \1class\1 \r end",
+            \ 'm':  "module \1module\1 \r end",
+            \ 'd':  "def \1def\1\2args\r..*\r(&)\2 \r end",
+            \ 'p':  "\1method\1 do \2args\r..*\r|&| \2\r end",
+            \ 'P':  "\1method\1 {\2args\r..*\r|&|\2 \r }",
+            \ }
+let g:surround_custom_mapping.javascript = {
+            \ 'f':  "function(){ \r  }"
+            \
+            \ }
+let g:surround_custom_mapping.vim= {
+            \'f':  "function! \r endfunction"
+            \
+            \ }
+
+let g:ruby_path="/opt/boxen/rbenv/shims/ruby"
+set ttyfast
+set lazyredraw
+
+" AIRLINE
+set laststatus=2

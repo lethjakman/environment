@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/zsh
 set -e
 environment="$HOME/.environment"
 if [ ! -d "$environment" ]; then
-  git clone https://github.com/lethjakman/environment "$environment"
+  git clone -q --branch prezto --recursive https://github.com/lethjakman/environment "$environment"
 fi
 
 dot_folder="$environment/dotfiles"
@@ -23,3 +23,10 @@ for f in "$dot_folder"/*; do
     fi
   fi
 done
+
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
+
+source ~/.fzf/install
