@@ -39,7 +39,7 @@
 (package-initialize)
 
 ;; Solarized
-(load-theme 'solarized-dark t)
+(load-theme 'cyberpunk t)
 
 ;;evil mode
 (setq evil-want-C-u-scroll t) ; must appear before require 'evil
