@@ -13,14 +13,15 @@
 (require 'cl)
 
 (defvar my-packages
-  '(ack-and-a-half ace-jump-mode ace-window auctex clojure-mode
-		   coffee-mode deft exec-path-from-shell evil evil-tabs
-		   evil-surround evil-commentary evil-rails
-		   evil-matchit expand-region gist haml-mode
-		   haskell-mode helm-ag helm helm-projectile flx-ido
-		   inf-ruby magit markdown-mode multi-term perspective
-		   projectile sass-mode solarized-theme rainbow-mode
-		   scss-mode solarized-theme)
+  '(ack-and-a-half ace-jump-mode auto-complete ace-window auctex
+		   clojure-mode coffee-mode cyberpunk-theme deft
+		   exec-path-from-shell evil evil-tabs evil-surround
+		   evil-commentary evil-rails evil-matchit
+		   expand-region flycheck gist haml-mode haskell-mode
+		   helm-ag helm helm-projectile flx-ido inf-ruby magit
+		   markdown-mode multi-term perspective projectile
+		   sass-mode solarized-theme rainbow-mode scss-mode
+		   solarized-theme yasnippet)
   "A list of packages to ensure are installed at launch.")
 
 (defun my-packages-installed-p ()
@@ -219,3 +220,16 @@
       (winner-mode 1))
 
 (add-to-list 'default-frame-alist '(font . "anonymous_pro"))
+
+;; flycheck
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; yasnippet 
+(require 'yasnippet)
+(yas-global-mode 1)
+
+;; autocomplete
+(require 'auto-complete)
+(global-auto-complete-mode t)
+
