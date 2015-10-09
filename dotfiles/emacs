@@ -13,14 +13,46 @@
 (require 'cl)
 
 (defvar my-packages
-  '(ack-and-a-half ace-jump-mode ace-window auctex clojure-mode
-		   coffee-mode deft elm-mode exec-path-from-shell evil
-		   evil-tabs evil-surround evil-commentary evil-rails
-		   evil-matchit expand-region gist haml-mode
-		   haskell-mode helm-ag helm helm-projectile flx-ido
-		   inf-ruby magit markdown-mode multi-term perspective
-		   projectile sass-mode solarized-theme rainbow-mode
-		   scss-mode solarized-theme)
+  '(ack-and-a-half
+    ace-jump-mode
+    ace-window
+    auctex
+    auto-complete
+    clojure-mode
+    coffee-mode
+    cyberpunk-theme
+    deft
+    elm-mode
+    evil
+    evil-commentary
+    evil-matchit
+    evil-rails
+    evil-surround
+    evil-tabs
+    exec-path-from-shell
+    expand-region
+    flx-ido
+    flycheck
+    gist
+    haml-mode
+    haskell-mode
+    haskell-mode
+    helm
+    helm-ag
+    helm-projectile
+    inf-ruby
+    magit
+    markdown-mode
+    multi-term
+    perspective
+    projectile
+    rainbow-mode
+    sass-mode
+    scss-mode
+    solarized-theme
+    solarized-theme
+    yasnippet
+   )
   "A list of packages to ensure are installed at launch.")
 
 (defun my-packages-installed-p ()
@@ -39,7 +71,7 @@
 (package-initialize)
 
 ;; Solarized
-(load-theme 'solarized-dark t)
+(load-theme 'cyberpunk t)
 
 ;;evil mode
 (setq evil-want-C-u-scroll t) ; must appear before require 'evil
@@ -221,3 +253,16 @@
       (winner-mode 1))
 
 (add-to-list 'default-frame-alist '(font . "anonymous_pro"))
+
+;; flycheck
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; yasnippet
+(require 'yasnippet)
+(yas-global-mode 1)
+
+;; autocomplete
+(require 'auto-complete)
+(global-auto-complete-mode t)
+
