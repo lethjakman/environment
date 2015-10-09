@@ -15,10 +15,11 @@
 (defvar my-packages
   '(ack-and-a-half ace-jump-mode auto-complete ace-window auctex
 		   clojure-mode coffee-mode cyberpunk-theme deft
-		   exec-path-from-shell evil evil-tabs evil-surround
-		   evil-commentary evil-rails evil-matchit
-		   expand-region flycheck gist haml-mode haskell-mode
-		   helm-ag helm helm-projectile flx-ido inf-ruby magit
+		   elm-mode exec-path-from-shell evil evil-tabs
+		   evil-surround evil-commentary evil-rails
+		   evil-matchit expand-region flycheck gist haml-mode
+		   haskell-mode haskell-mode helm-ag helm
+		   helm-projectile flx-ido inf-ruby magit
 		   markdown-mode multi-term perspective projectile
 		   sass-mode solarized-theme rainbow-mode scss-mode
 		   solarized-theme yasnippet)
@@ -190,6 +191,8 @@
 
 ;; haskell
 (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
+
+(require 'elm-mode)
 
 (defun my-setup-indent (n)
   ;; web development
