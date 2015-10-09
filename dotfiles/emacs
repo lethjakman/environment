@@ -258,7 +258,7 @@
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-;; yasnippet 
+;; yasnippet
 (require 'yasnippet)
 (yas-global-mode 1)
 
