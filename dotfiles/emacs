@@ -45,6 +45,7 @@
     markdown-mode
     multi-term
     perspective
+    persp-projectile
     projectile
     rainbow-mode
     sass-mode
@@ -179,6 +180,7 @@
 
 ;; perspective
 (persp-mode)
+(define-key projectile-mode-map (kbd "C-c v") 'projectile-persp-switch-project)
 
 ;; fix multiterm
 (defadvice ansi-term (after advise-ansi-term-coding-system)
