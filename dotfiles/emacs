@@ -47,6 +47,7 @@
     multi-term
     perspective
     persp-projectile
+    powerline
     projectile
     rainbow-mode
     sass-mode
@@ -169,6 +170,7 @@
 (projectile-global-mode)
 (require 'helm-projectile)
 (helm-projectile-on)
+;; (require 'persp-projectile)
 
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
@@ -269,3 +271,6 @@
 (require 'auto-complete)
 (global-auto-complete-mode t)
 
+;; Powerline
+(require 'powerline)
+(powerline-center-evil-theme)
