@@ -37,7 +37,6 @@
     gist
     haml-mode
     haskell-mode
-    haskell-mode
     helm
     helm-ag
     helm-projectile
