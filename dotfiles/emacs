@@ -50,6 +50,7 @@
     powerline
     projectile
     rainbow-mode
+    rbenv
     sass-mode
     scss-mode
     solarized-theme
@@ -274,3 +275,8 @@
 ;; Powerline
 (require 'powerline)
 (powerline-center-evil-theme)
+
+;;rbenv
+
+(global-rbenv-mode)
+(setq rbenv-installation-dir "/opt/boxen/rbenv")
