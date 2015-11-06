@@ -183,3 +183,5 @@ set lazyredraw
 
 " AIRLINE
 set laststatus=2
+
+let g:fugitive_github_domains = ['http://github.pinnacol.com']

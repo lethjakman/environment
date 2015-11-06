@@ -45,8 +45,8 @@
     magit
     markdown-mode
     multi-term
-    perspective
     persp-projectile
+    perspective
     powerline
     projectile
     rainbow-mode

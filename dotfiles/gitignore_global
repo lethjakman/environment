@@ -2,3 +2,6 @@
 cache/*
 tags
 .DS_Store
+/vendor
+*~
+*#
