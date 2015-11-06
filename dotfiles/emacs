@@ -282,6 +282,5 @@
 (add-hook 'robe-mode-hook 'ac-robe-setup)
 
 ;;rbenv
-
-(global-rbenv-mode)
 (setq rbenv-installation-dir "/opt/boxen/rbenv")
+(global-rbenv-mode)
