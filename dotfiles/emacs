@@ -215,7 +215,7 @@
  '(multi-term-scroll-to-bottom-on-output t)
  '(projectile-globally-ignored-directories
    (quote
-    (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "vendor" "log" "tmp" "node_modules")))
+    (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" ".rdoc" "vendor" "log" "tmp" "node_modules")))
  '(safe-local-variable-values
    (quote
     ((haskell-process-use-ghci . t)
