@@ -51,6 +51,7 @@
     projectile
     rainbow-mode
     rbenv
+    robe
     sass-mode
     scss-mode
     solarized-theme
@@ -275,6 +276,10 @@
 ;; Powerline
 (require 'powerline)
 (powerline-center-evil-theme)
+
+;; robe
+(add-hook 'ruby-mode-hook 'robe-mode)
+(add-hook 'robe-mode-hook 'ac-robe-setup)
 
 ;;rbenv
 
