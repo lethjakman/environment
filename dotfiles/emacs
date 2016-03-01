@@ -75,6 +75,9 @@
 
 (package-initialize)
 
+;; indentation
+(setq-default indent-tabs-mode nil)
+
 ;; Solarized
 (load-theme 'cyberpunk t)
 
