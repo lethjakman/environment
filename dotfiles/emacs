@@ -106,6 +106,9 @@
 (require 'magit)
 (global-set-key (kbd "C-c g") 'magit-status)
 
+;; Ignore yas in term mode
+(add-hook 'term-mode-hook (lambda () (yas-minor-mode -1)))
+
 (with-eval-after-load 'info
   (info-initialize)
   (add-to-list 'Info-directory-list
