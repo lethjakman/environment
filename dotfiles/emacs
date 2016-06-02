@@ -42,6 +42,7 @@
     helm-ag
     helm-projectile
     inf-ruby
+    jade-mode
     magit
     markdown-mode
     multi-term
@@ -77,6 +78,9 @@
 
 ;; indentation
 (setq-default indent-tabs-mode nil)
+
+;; Pairing
+(electric-pair-mode 1)
 
 ;; Solarized
 (load-theme 'cyberpunk t)
@@ -159,6 +163,11 @@
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
 
+(global-set-key (kbd "M-x")                          'undefined)
+(global-set-key (kbd "M-x")                          'helm-M-x)
+(global-set-key (kbd "C-x r b")                      'helm-filtered-bookmarks)
+(global-set-key (kbd "C-x C-f")                      'helm-find-files)
+
 (when (executable-find "curl")
   (setq helm-google-suggest-use-curl-p t))
 
@@ -202,7 +211,7 @@
 ;; (add-hook 'term-mode-hook (lambda() (set (make-local-variable 'evil-mode) nil)))
 
 (require 'multi-term)
-(setq multi-term-program "/usr/local/bin/zsh")
+(setq multi-term-program "/opt/boxen/homebrew/bin/zsh")
 (setq system-uses-terminfo nil)
 
 
@@ -222,13 +231,14 @@
  '(projectile-globally-ignored-directories
    (quote
     (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" ".rdoc" "vendor" "log" "tmp" "node_modules")))
+ '(coffee-tab-width 2)
  '(safe-local-variable-values
    (quote
     ((haskell-process-use-ghci . t)
-     (haskell-indent-spaces . 4)))))
+     (haskell-indentq-spaces . 4)))))
 
 ;; Tabs
-;;(setq-default indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil)
 ;;(setq-default tab-width 4)
 ;;(setq indent-line-function 'insert-tab)
 
@@ -290,3 +300,11 @@
 ;;rbenv
 (setq rbenv-installation-dir "/opt/boxen/rbenv")
 (global-rbenv-mode)
+
+(setenv "PATH"
+        (concat (getenv "HOME") "/.rbenv/shims:"
+                (getenv "HOME") "/.rbenv/bin:" (getenv "PATH")))
+
+(setq exec-path
+      (cons (concat (getenv "HOME") "/.rbenv/shims")
+            (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
