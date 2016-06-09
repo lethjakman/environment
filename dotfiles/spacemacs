@@ -266,6 +266,8 @@ you should place your code here."
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
   (global-flycheck-mode)
+
+  (helm-projectile-on)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
