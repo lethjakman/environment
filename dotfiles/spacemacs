@@ -262,9 +262,12 @@ you should place your code here."
   (setq-default indent-tabs-mode nil)
   (setq-default tab-width 2)
   (setq-default typescript-indent-level 2)
+  (setq-default css-indent-offset 2)
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
+  (setq-default js2-basic-offset 2
+                js-indent-level 2)
   (global-flycheck-mode)
 
   (helm-projectile-on)
